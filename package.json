@@ -1,0 +1,71 @@
+{
+    "name": "pkg-template-react-ts",
+    "version": "0.0.0",
+    "description": "The template for building react npm package with typescript",
+    "main": "dist/index.js",
+    "module": "dist/index.esm.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "npm run lint && rimraf dist && rollup -c && node scripts/bundle-size.js",
+        "lint": "eslint src --ext .ts,.tsx,.js --cache",
+        "commitlint": "commitlint -E HUSKY_GIT_PARAMS",
+        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+        "authors": "git log --format='%aN <%aE>' | sort -u > AUTHORS.txt",
+        "version": "npm run build && npm run changelog && npm run authors && git add --all",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prepare": "husky install"
+    },
+    "author": "advancedcat <wshx1938@gmail.com>",
+    "license": "MIT",
+    "files": [
+        "dist"
+    ],
+    "browserslist": [
+        "last 2 years",
+        "ie > 8"
+    ],
+    "dependencies": {},
+    "peerDependencies": {
+        "react": "^16.9",
+        "react-dom": "^16.9"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.14.0",
+        "@babel/preset-env": "^7.14.1",
+        "@babel/preset-react": "^7.13.13",
+        "@babel/preset-typescript": "^7.13.0",
+        "@commitlint/cli": "^12.1.1",
+        "@commitlint/config-conventional": "^12.1.1",
+        "@rollup/plugin-babel": "^5.3.0",
+        "@rollup/plugin-commonjs": "^18.1.0",
+        "@rollup/plugin-node-resolve": "^13.0.0",
+        "@rollup/plugin-replace": "^2.4.2",
+        "@typescript-eslint/eslint-plugin": "^4.22.1",
+        "@typescript-eslint/parser": "^4.22.1",
+        "@types/react": "^16.9",
+        "@types/react-dom": "^16.9",
+        "@wessberg/rollup-plugin-ts": "^1.3.14",
+        "babel-loader": "^8.2.2",
+        "cli-table": "^0.3.6",
+        "colors": "^1.4.0",
+        "conventional-changelog-cli": "^2.1.1",
+        "eslint": "^7.25.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-prettier": "^3.4.0",
+        "eslint-plugin-react": "^7.23.2",
+        "filesize": "^6.3.0",
+        "glob": "^7.1.7",
+        "gzip-size": "^6.0.0",
+        "husky": "^6.0.0",
+        "prettier": "^2.2.1",
+        "pretty-quick": "^3.1.0",
+        "react": "^16.9",
+        "react-dom": "^16.9",
+        "rimraf": "^3.0.2",
+        "rollup": "^2.47.0",
+        "rollup-plugin-terser": "^7.0.2",
+        "rollup-plugin-uglify": "^6.0.4",
+        "tslib": "^2.2.0",
+        "typescript": "^4.2.4"
+    }
+}
