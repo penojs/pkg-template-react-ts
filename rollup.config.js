@@ -5,7 +5,6 @@ import ts from '@wessberg/rollup-plugin-ts'
 import { uglify } from 'rollup-plugin-uglify'
 import { terser } from 'rollup-plugin-terser'
 import replace from '@rollup/plugin-replace'
-// import analyze from 'rollup-plugin-analyzer'
 import pkg from './package.json'
 
 const banner = `/*!
@@ -24,6 +23,7 @@ const commonOutput = {
         react: 'React',
         'react-dom': 'ReactDOM',
     },
+    exports: 'named',
 }
 
 export default {
@@ -63,6 +63,5 @@ export default {
             babelHelpers: 'bundled',
             exclude: 'node_modules/**', // 只编译我们的源代码
         }),
-        // analyze(),
     ],
 }
